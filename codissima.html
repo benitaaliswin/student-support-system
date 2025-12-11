@@ -1,0 +1,134 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Support System</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f6f9;
+    }
+    header {
+      background: #4a6cf7;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      background: white;
+      padding: 13px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    nav a {
+      text-decoration: none;
+      font-size: 18px;
+      color: #4a6cf7;
+      font-weight: 600;
+    }
+    .section {
+      max-width: 900px;
+      margin: 40px auto;
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #333;
+    }
+    .input-box {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-top: 10px;
+      margin-bottom: 15px;
+      font-size: 16px;
+    }
+    button {
+      background: #4a6cf7;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .chat-box {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 15px;
+      height: 200px;
+      overflow-y: auto;
+      background: #fafafa;
+    }
+    .msg {
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 6px;
+      max-width: 80%;
+    }
+    .user { background: #d7e3ff; }
+    .bot { background: #e8e8e8; }
+  </style>
+</head>
+<body><header>Student Support System</header><nav>
+  <a href="#ai">AI Chat</a>
+  <a href="#ticket">Raise Issue</a>
+  <a href="#resources">Resources</a>
+  <a href="#guides">Guides</a>
+</nav><div class="section" id="ai">
+  <h2>AI Support Chat</h2>
+  <div class="chat-box" id="chatBox"></div>
+  <input type="text" id="userInput" class="input-box" placeholder="Ask something..." />
+  <button onclick="sendMessage()">Send</button>
+</div><div class="section" id="ticket">
+  <h2>Raise a Support Ticket</h2>
+  <input class="input-box" placeholder="Enter your name" />
+  <input class="input-box" placeholder="Issue Title" />
+  <textarea class="input-box" placeholder="Describe your issue" rows="5"></textarea>
+  <button>Submit</button>
+</div><div class="section" id="resources">
+  <h2>Resources</h2>
+  <ul>
+    <li>📄 Timetable PDF</li>
+    <li>📘 Syllabus</li>
+    <li>📢 Exam Notifications</li>
+    <li>📝 Important Forms</li>
+  </ul>
+</div><div class="section" id="guides">
+  <h2>Self-Help Guides</h2>
+  <ul>
+    <li>How to apply for ID card?</li>
+    <li>How to request bonafide certificate?</li>
+    <li>How to apply for leave?</li>
+    <li>How to register subjects?</li>
+  </ul>
+</div><script>
+function sendMessage() {
+  const input = document.getElementById("userInput");
+  const chat = document.getElementById("chatBox");
+
+  if (!input.value.trim()) return;
+
+  let userMsg = document.createElement("div");
+  userMsg.className = "msg user";
+  userMsg.innerText = input.value;
+  chat.appendChild(userMsg);
+
+  let botMsg = document.createElement("div");
+  botMsg.className = "msg bot";
+  botMsg.innerText = "(AI Response Demo) I will help you soon!";
+  chat.appendChild(botMsg);
+
+  chat.scrollTop = chat.scrollHeight;
+  input.value = "";
+}
+</script></body>
+</html>
